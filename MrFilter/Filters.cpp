@@ -3,19 +3,19 @@
 #include <cstdint>
 
 
-void average(img32d *img, img32d *output, int x, int y) {
-	int a = 0;
-	int r = 0;
-	int g = 0;
-	int b = 0;
-	for (int i = -1; i < 2; i++) {
-		for (int j = -i; j < 2; j++) {
-			a += img->a[y*img->w + x];
-			r += img->r[y*img->w + x];
-			g += img->g[y*img->w + x];
-			b += img->b[y*img->w + x];
+void average(img32d *input, img32d *output) {
+	for (int y = 1; y < input->h-1; y++) {
+		for (int x = 1; x < input->w-1; x++) {
+			
+			for (int c = 0; c < 4; c++) {
+			}
+
+			
 		}
 	}
+		
+	
+	/*
 	a = a / 9;
 	r = r / 9;
 	g = g / 9;
@@ -25,7 +25,23 @@ void average(img32d *img, img32d *output, int x, int y) {
 	output->r[y*img->w + x] = (uint8_t)r;
 	output->g[y*img->w + x] = (uint8_t)g;
 	output->b[y*img->w + x] = (uint8_t)b;
+	*/
 }
+
+void average(uint8_t *inChannel, uint8_t *outChannel, int pixelCount) {
+	
+	
+}
+
+uint8_t averageChannel(uint8_t *in, int stride) {
+	int level = 0;
+	for (int i = -1; i < 2; i++) {
+		for (int j = -i; j < 2; j++) {
+			level += in[(y*stride) + x];
+		}
+	}
+}
+
 void averageAVX(img32d *img, img32d *output, int x, int y) {
 
 }

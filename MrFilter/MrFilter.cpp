@@ -2,8 +2,6 @@
 //
 
 #include "stdafx.h"
-#include <Windows.h>
-#include <gdiplus.h>
 #include "FIlterUtil.h"
 #include <chrono>
 #include <iostream>
@@ -18,13 +16,7 @@ int main(int argc, char** argv)
 	/**
 	* Image Import
 	*/
-	GdiplusStartupInput gdiplusStartupInput;
-	ULONG_PTR gdiplusToken;
-	GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
-
-	Bitmap* image = new Bitmap(L"test.jpg");
-	img32d *img;
-	gdiplus2img32d(image, img);
+	
 
 	/*
 	* Processing
@@ -49,7 +41,6 @@ int main(int argc, char** argv)
 	
 	//output.Save(L"output.png", &pngClsid, NULL);
 	output->Save(L"output.png", &pngClsid, NULL);
-	delete image;
 	scanf("%s");
     return 0;
 }

@@ -33,14 +33,7 @@ void average(uint8_t *inChannel, uint8_t *outChannel, int pixelCount) {
 	
 }
 
-uint8_t averageChannel(uint8_t *in, int stride) {
-	int level = 0;
-	for (int i = -1; i < 2; i++) {
-		for (int j = -i; j < 2; j++) {
-			level += in[(y*stride) + x];
-		}
-	}
-}
+
 
 void averageAVX(img32d *img, img32d *output, int x, int y) {
 
